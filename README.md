@@ -1,4 +1,5 @@
-#### Warning: Under Developtment 
+#### Warning: Under Developtment
+please contact with bermudez@ele.puc-rio.br for more information.
 
 ### Synthesis of Multispectral Optical Images from SAR-Optical Multitemporal Data using cGANS
 
