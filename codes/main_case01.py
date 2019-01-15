@@ -3,11 +3,7 @@ import os
 import scipy.misc
 import numpy as np
 
-# from model import pix2pix
-# from model_128 import pix2pix
-# from model_semiautomatic import pix2pix
-from model_semiautomatic_quemadas_first_classifier_new_graph import pix2pix
-# from model_semiautomatic_quemadas import pix2pix
+from model import pix2pix
 import tensorflow as tf
 parser = argparse.ArgumentParser(description='')
 # os.environ["CUDA_VISIBLE_DEVICES"]="1"
@@ -33,40 +29,17 @@ parser = argparse.ArgumentParser(description='')
 #parser.add_argument('--experiment_type', dest='experiment_type', default='case_01', help='define experiment case')
 #parser.add_argument('--image_region', dest='image_region', default='top', help='define region de la imagen a analizar')
 
-# parser.add_argument('--dataset_name', dest='dataset_name', default='05may2016_C01_semi', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-# parser.add_argument('--dataset_name', dest='dataset_name', default='05may2016_C01', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
+# parser.add_argument('--dataset_name', dest='dataset_name', default='13jul2017_C03', help='name of the dataset')
+# parser.add_argument('--experiment_type', dest='experiment_type', default='case_03', help='define experiment case')
 
 # parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_C', help='name of the dataset')
 # parser.add_argument('--experiment_type', dest='experiment_type', default='case_C', help='define experiment case')
 
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_C_new', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_C', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_semi_L0', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_semi_L02', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_semi_L03_all_labeled', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_valset', help='name of the dataset')
+parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A', help='name of the dataset')
 parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
 
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_semi', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_nosemi', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
-
-# parser.add_argument('--dataset_name', dest='dataset_name', default='quemadas_ap2_case_A_new', help='name of the dataset')
-# parser.add_argument('--experiment_type', dest='experiment_type', default='case_A', help='define experiment case')
+#parser.add_argument('--dataset_name', dest='dataset_name', default='08jul2016_multiresolution', help='name of the dataset')
+#parser.add_argument('--experiment_type', dest='experiment_type', default='case_03', help='define experiment case')
 
 
 parser.add_argument('--epoch', dest='epoch', type=int, default=100, help='# of epoch')
@@ -108,7 +81,7 @@ def main(_):
 
     with tf.Session() as sess:
         model = pix2pix(sess, image_size=args.fine_size, batch_size=args.batch_size,
-                        output_size=args.fine_size, input_c_dim=args.input_nc, L1_lambda=args.L1_lambda,
+                        output_size=args.fine_size, input_c_dim=args.input_nc,
                         output_c_dim=args.output_nc, dataset_name=args.dataset_name,
                         checkpoint_dir=args.checkpoint_dir, sample_dir=args.sample_dir)
 
@@ -120,10 +93,6 @@ def main(_):
             model.generate_image(args)
         elif args.phase == 'create_dataset':
             model.create_dataset(args)
-        elif args.phase == 'classify_image':
-            model.classiffy_generated_image(args)
-        elif args.phase == 'compare':
-            model.compare_rel_vs_fake_trnsamples(args)
         else:
             print ('...')
 
