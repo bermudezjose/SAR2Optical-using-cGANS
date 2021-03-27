@@ -1,4 +1,3 @@
-please contact with bermudez@ele.puc-rio.br for more information.
 
 ### Synthesis of Multispectral Optical Images from SAR-Optical Multitemporal Data using cGANS
 
@@ -18,6 +17,7 @@ For a new version, it is included two notebooks for monotemporal and multitempor
 
 ### Getting Started
 - Clone this repo:
-```bash
-git clone git@github.com:bermudezjose/Synthesis-of-multispectral-optical-images-from-SAR-optical-multi-temporal-data-using-cGANS.git
-cd pix2pix-tensorflow
+'''bash git clone git@github.com:bermudezjose/Synthesis-of-multispectral-optical-images-from-SAR-optical-multi-temporal-data-using-cGANS.git
+cd pix2pix-tensorflow'''
+
+please contact with bermudez@ele.puc-rio.br for more information.
