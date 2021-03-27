@@ -7,6 +7,8 @@ TensorFlow implementation of [Synthesis of Multispectral Optical Images from SAR
 
 This code is an adaptation of https://github.com/yenchenlin/pix2pix-tensorflow pix2pix Tensorflow implementation.
 
+Also, it is include two notebooks for monotemporal and multitemporal translations using Sentinel 1 and 2 data. For this notebooks, images can be downloades using git.
+
 ## Setup
 
 ### Prerequisites
