@@ -5,9 +5,9 @@ please contact with bermudez@ele.puc-rio.br for more information.
 
 TensorFlow implementation of [Synthesis of Multispectral Optical Images from SAR-Optical Multitemporal Data using cGANS] that uses cGANs to generate the missing optical image by exploiting the correspondent SAR data with an SAR-optical image pair from the same area in a different epoch.
 
-This code is an adaptation of https://github.com/yenchenlin/pix2pix-tensorflow pix2pix Tensorflow implementation.
+The original code is an adaptation of https://github.com/yenchenlin/pix2pix-tensorflow pix2pix Tensorflow implementation.
 
-Also, it is included two notebooks for monotemporal and multitemporal translations using Sentinel 1 and 2 data. For this notebooks, images can be downloaded using git.
+For a new version, it is included two notebooks for monotemporal and multitemporal translations using Sentinel 1 and 2 data. Images can be downloaded using git. For these notebooks, the implementation is based on Keras and Tensorflow frameworks, and the Generator arquitecture was updated by incorporating Residual blocks. Notebooks can be executed on Google Colab.
 
 ## Setup
 
